@@ -23,7 +23,7 @@ public class Combat : MonoBehaviour
             movement.animator.SetTrigger("Attack");
 
             // Calculation 
-            float angle = Mathf.Atan2(movement.moveValue.y, movement.moveValue.x);
+            float angle = Mathf.Atan2(movement.aimDirection.y, movement.aimDirection.x);
             angle = angle * Mathf.Rad2Deg + 90;
             Quaternion rotation = Quaternion.Euler(0, 0, angle);
 

@@ -20,6 +20,8 @@ public class Fireball : MonoBehaviour
         if (collision.CompareTag("Slime"))
         {
             animator.SetTrigger("Boom");
+            speed = 0;
+            Destroy(gameObject, 0.66f);
         }
     }
 }
