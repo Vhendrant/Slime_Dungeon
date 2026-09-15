@@ -9,10 +9,12 @@ public class Slime_Behavior : MonoBehaviour
     public Animator animator;
     private bool isMoving;
     public float spawnTimer = 0;
+    public float Health = 10;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        Health = 10;
     }
 
     void Update()
@@ -38,7 +40,7 @@ public class Slime_Behavior : MonoBehaviour
     }
     public void multiply()
     {
-        float spawnTarget = 30;
+        float spawnTarget = 5;
         if (spawnTimer < spawnTarget)
         {
             spawnTimer += Time.deltaTime;
@@ -48,6 +50,13 @@ public class Slime_Behavior : MonoBehaviour
             spawnTimer = 0;
             Instantiate(gameObject, transform.position, transform.rotation);
 
+        }
+    }
+    public void died()
+    {
+        if(Health == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

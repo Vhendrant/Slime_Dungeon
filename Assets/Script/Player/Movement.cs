@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
 
         moveValue = moveAction.ReadValue<Vector2>();
         Vector3 move = new Vector3(moveValue.x, moveValue.y, 0);
-        transform.Translate(move * moveSpeed * Time.deltaTime, Space.World);
+        rb2d.linearVelocity = move * moveSpeed;
         animator.SetFloat("Speed", moveValue.sqrMagnitude);
 
         animator.SetFloat("MoveX", aimDirection.x);
