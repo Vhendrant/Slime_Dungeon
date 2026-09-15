@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: fc9347889bb72493183551331c21daac
+guid: 07dec8ed028c54dc5b5727c60bacd4db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5894810292097335965
-    second: Sword_UpRight_0
+      213: -3850307665629301282
+    second: Fire_03_Red_0
   - first:
-      213: -9207426400986712335
-    second: Sword_UpRight_1
+      213: -4308901639675666114
+    second: Fire_03_Red_1
   - first:
-      213: -5465808196568714178
-    second: Sword_UpRight_2
+      213: -5846402002546001670
+    second: Fire_03_Red_2
   - first:
-      213: 6074386965778126799
-    second: Sword_UpRight_3
+      213: -2054811155481997869
+    second: Fire_03_Red_3
+  - first:
+      213: 7880060300739855135
+    second: Fire_03_Red_4
+  - first:
+      213: -2763213412422016107
+    second: Fire_03_Red_5
+  - first:
+      213: 6391165772039407072
+    second: Fire_03_Red_6
+  - first:
+      213: -6637424186100762996
+    second: Fire_03_Red_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +134,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sword_UpRight_0
+      name: Fire_03_Red_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5b332f395f09ac0800000000000000
+      internalID: -3850307665629301282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_03_Red_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e31a80bc9c4b334c0800000000000000
+      internalID: -4308901639675666114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_03_Red_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +193,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9247c68ab29ec150800000000000000
-      internalID: 5894810292097335965
+      spriteID: af8fc10ba586ddea0800000000000000
+      internalID: -5846402002546001670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sword_UpRight_1
+      name: Fire_03_Red_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd4cf41428db73e0800000000000000
+      internalID: -2054811155481997869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_03_Red_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +237,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f632a9a876a83080800000000000000
-      internalID: -9207426400986712335
+      spriteID: f13c14ad7199b5d60800000000000000
+      internalID: 7880060300739855135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sword_UpRight_2
+      name: Fire_03_Red_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593adf1aa0817a9d0800000000000000
+      internalID: -2763213412422016107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_03_Red_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e347a11876c8524b0800000000000000
-      internalID: -5465808196568714178
+      spriteID: 0e54b07686bf1b850800000000000000
+      internalID: 6391165772039407072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sword_UpRight_3
+      name: Fire_03_Red_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +303,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc7d77b03ce8c4450800000000000000
-      internalID: 6074386965778126799
+      spriteID: c86b0eb8ed123e3a0800000000000000
+      internalID: -6637424186100762996
       vertices: []
       indices: 
       edges: []
@@ -213,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9f41f618407aa4a788ab39c19aa0b699
+    spriteID: f6ff3124947e145bcb173c4318b1c1c6
     internalID: 0
     vertices: []
     indices: 
@@ -223,12 +323,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sword_UpRight_0: 5894810292097335965
-      Sword_UpRight_1: -9207426400986712335
-      Sword_UpRight_2: -5465808196568714178
-      Sword_UpRight_3: 6074386965778126799
+      Fire_03_Red_0: -3850307665629301282
+      Fire_03_Red_1: -4308901639675666114
+      Fire_03_Red_2: -5846402002546001670
+      Fire_03_Red_3: -2054811155481997869
+      Fire_03_Red_4: 7880060300739855135
+      Fire_03_Red_5: -2763213412422016107
+      Fire_03_Red_6: 6391165772039407072
+      Fire_03_Red_7: -6637424186100762996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
