@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1994826448696403083}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,3 +159,4 @@ MonoBehaviour:
   rb2d: {fileID: 5111410267475977807}
   player: {fileID: 0}
   animator: {fileID: 5001940232306930207}
+  spawnTimer: 0

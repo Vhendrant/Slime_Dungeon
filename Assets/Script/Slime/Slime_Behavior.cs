@@ -1,4 +1,3 @@
-using UnityEditor.UI;
 using UnityEngine;
 
 public class Slime_Behavior : MonoBehaviour
@@ -8,16 +7,14 @@ public class Slime_Behavior : MonoBehaviour
     private float moveSpeed = 5;
     private float timer = 0;
     public Animator animator;
-    private bool move;
-    private float spawnTimer = 0;
+    private bool isMoving;
+    public float spawnTimer = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GetComponent<GameObject.FindGameObjectsWithTag<"Player">>;
+        player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         float target = 4; 
@@ -25,7 +22,7 @@ public class Slime_Behavior : MonoBehaviour
         if (timer < target)
         {
             timer += Time.deltaTime;
-            move = false;
+            isMoving = false;
         }
         else
         {
@@ -34,8 +31,10 @@ public class Slime_Behavior : MonoBehaviour
             timer = 0;
             animator.SetFloat("MoveX", direction.x);
             animator.SetFloat("MoveY", direction.y);
-            move = true;
+            isMoving = true;
         }
+        animator.SetBool("Moving", isMoving);
+        multiply();
     }
     public void multiply()
     {
@@ -45,8 +44,10 @@ public class Slime_Behavior : MonoBehaviour
             spawnTimer += Time.deltaTime;
         }
         else
-        {
-            Instantiate(self, transform.position, transform.rotation);
+        {   
+            spawnTimer = 0;
+            Instantiate(gameObject, transform.position, transform.rotation);
+
         }
     }
 }
