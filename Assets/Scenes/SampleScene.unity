@@ -3135,6 +3135,7 @@ MonoBehaviour:
   fireball: {fileID: 1195478640932804307, guid: 4f08beb6e906449c9816e766b6c2797a, type: 3}
   attackSlot: 3
   timer: 0
+  maxSlot: 3
 --- !u!70 &1918621797
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3201,13 +3202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c80f7293a7ce49c0bff99c3b3b6028a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Manager
-  reloadText: {fileID: 0}
+  reloadText: {fileID: 49604848}
   combat: {fileID: 1918621796}
   image: {fileID: 520619732}
   image2: {fileID: 684148408}
   image3: {fileID: 1173616782}
-  full: {fileID: 0}
-  empty: {fileID: 0}
+  full: {fileID: 1605142274, guid: d00e25f017b984cd0b6860f983c853f2, type: 3}
+  empty: {fileID: 2104416494, guid: d00e25f017b984cd0b6860f983c853f2, type: 3}
 --- !u!4 &2051518702
 Transform:
   m_ObjectHideFlags: 0

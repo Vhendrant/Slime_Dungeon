@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Slime_Behavior : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public GameObject player;
+    public Movement movement;
     private float moveSpeed = 5;
     private float timer = 0;
     public Animator animator;
@@ -14,6 +16,7 @@ public class Slime_Behavior : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        movement = player.GetComponent<Movement>();
         Health = 10;
     }
 
@@ -40,7 +43,7 @@ public class Slime_Behavior : MonoBehaviour
     }
     public void multiply()
     {
-        float spawnTarget = 5;
+        float spawnTarget = 7.5f;
         if (spawnTimer < spawnTarget)
         {
             spawnTimer += Time.deltaTime;
@@ -57,6 +60,17 @@ public class Slime_Behavior : MonoBehaviour
         if(Health == 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            movement.health -= 1;
+            movement.rb2d.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
+            rb2d.AddForce(-direction * moveSpeed, ForceMode2D.Impulse);
         }
     }
 }
