@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,14 +11,16 @@ public class Slime_Behavior : MonoBehaviour
     private float timer = 0;
     public Animator animator;
     private bool isMoving;
-    public float spawnTimer = 0;
-    public float Health = 10;
+    public float spawnTimer = 7.5f;
+    public float Health = 5;
+    public TextMeshPro text;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         movement = player.GetComponent<Movement>();
-        Health = 10;
+        Health = 5;
+        spawnTimer = 7.5f;
     }
 
     void Update()
@@ -40,20 +43,21 @@ public class Slime_Behavior : MonoBehaviour
         }
         animator.SetBool("Moving", isMoving);
         multiply();
+
     }
     public void multiply()
     {
-        float spawnTarget = 7.5f;
-        if (spawnTimer < spawnTarget)
+        if (spawnTimer > 0)
         {
-            spawnTimer += Time.deltaTime;
+            spawnTimer -= Time.deltaTime;
         }
         else
         {   
-            spawnTimer = 0;
+            spawnTimer = 7.5f;
             Instantiate(gameObject, transform.position, transform.rotation);
 
         }
+        text.text = spawnTimer.ToString("F1");
     }
     public void died()
     {

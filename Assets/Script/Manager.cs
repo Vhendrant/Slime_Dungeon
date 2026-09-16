@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Manager : MonoBehaviour
     public Image image3;
     public Sprite full;
     public Sprite empty;
+    public Movement movement;
+    public TextMeshProUGUI healthCount;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,5 +50,10 @@ public class Manager : MonoBehaviour
             image2.sprite = empty;
             image3.sprite = empty;
         }
+        healthCount.text = movement.health.ToString();
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
