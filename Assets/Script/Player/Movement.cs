@@ -9,8 +9,6 @@ public class Movement : MonoBehaviour
     public GameObject slime;
     public Vector2 moveValue;
     public Vector2 aimDirection;
-    public int health = 10;
-    public Manager manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,11 +37,5 @@ public class Movement : MonoBehaviour
 
         animator.SetFloat("MoveX", aimDirection.x);
         animator.SetFloat("MoveY", aimDirection.y);
-
-        if (health <= 0)
-        {
-            manager.GameOver();
-            Destroy(gameObject);
-        }
     }
 }

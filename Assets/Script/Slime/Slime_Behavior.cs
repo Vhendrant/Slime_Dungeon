@@ -6,13 +6,11 @@ public class Slime_Behavior : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public GameObject player;
-    public Movement movement;
     private float moveSpeed = 5;
     private float timer = 0;
     public Animator animator;
     private bool isMoving;
     public float spawnTimer;
-    public float Health;
     public TextMeshPro text;
     public bool isOver = false;
     public GameObject manager;
@@ -21,8 +19,6 @@ public class Slime_Behavior : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        movement = player.GetComponent<Movement>();
-        Health = 3;
         spawnTimer = 8f;
         manager = GameObject.FindWithTag("Manager");
         managerClass = manager.GetComponent<Manager>();
@@ -69,22 +65,18 @@ public class Slime_Behavior : MonoBehaviour
         }
         text.text = spawnTimer.ToString("F1");
     }
-    public void died()
-    {
-        if(Health == 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
-            movement.health -= 1;
-            movement.rb2d.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
             rb2d.AddForce(-direction * moveSpeed, ForceMode2D.Impulse);
+            IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+            if (target != null)
+            {
+                target.Takedamage(1);
+            }
         }
     }
 }

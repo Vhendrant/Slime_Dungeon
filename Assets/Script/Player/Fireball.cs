@@ -17,22 +17,13 @@ public class Fireball : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slime"))
+        IDamageable target = collision.GetComponent<IDamageable>();
+        if (target != null)
         {
-            Collider2D col = GetComponent<Collider2D>();
-            if (col != null) col.enabled = false;
-
+            target.Takedamage(1);
             animator.SetTrigger("Boom");
             speed = 0;
             Destroy(gameObject, 0.66f);
-
-            Slime_Behavior slime_Behavior = collision.GetComponent<Slime_Behavior>();
-            if (slime_Behavior != null)
-            {
-                slime_Behavior.Health -= 1; 
-                slime_Behavior.died();
-            }
-
         }
     }
 }

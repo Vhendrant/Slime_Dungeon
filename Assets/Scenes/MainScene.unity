@@ -4263,7 +4263,8 @@ GameObject:
   - component: {fileID: 1918621794}
   - component: {fileID: 1918621796}
   - component: {fileID: 1918621797}
-  m_Layer: 0
+  - component: {fileID: 1918621798}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4384,8 +4385,6 @@ MonoBehaviour:
   slime: {fileID: 8430864506705273173, guid: 57b2512eda973444bb91c25ee2fdcd86, type: 3}
   moveValue: {x: 0, y: 0}
   aimDirection: {x: 0, y: 0}
-  health: 10
-  manager: {fileID: 2051518701}
 --- !u!50 &1918621795
 Rigidbody2D:
   serializedVersion: 5
@@ -4467,6 +4466,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0027781725, y: -0.047229}
   m_Size: {x: 0.449921, y: 0.53882265}
   m_Direction: 0
+--- !u!114 &1918621798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918621790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd337ffd6b2e463ea1c9fae2d0fb3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  MaxHealth: 10
+  currentHealth: 0
 --- !u!1 &1937444524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4562,11 +4575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Manager
   reloadText: {fileID: 49604848}
   combat: {fileID: 1918621796}
-  image: {fileID: 520619732}
+  health: {fileID: 1918621798}
   fireballCount: {fileID: 1655096672}
-  full: {fileID: 1605142274, guid: d00e25f017b984cd0b6860f983c853f2, type: 3}
-  empty: {fileID: 2104416494, guid: d00e25f017b984cd0b6860f983c853f2, type: 3}
-  movement: {fileID: 1918621794}
   healthCount: {fileID: 1429744636}
   slime_Behavior: {fileID: 1994826448696403083, guid: 57b2512eda973444bb91c25ee2fdcd86, type: 3}
   gameover: {fileID: 693794338}
