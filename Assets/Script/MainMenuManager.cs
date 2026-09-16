@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public TextMeshProUGUI text;
-    public Image image;
+    public GameObject mainMenu;
+    public GameObject nextSceneObject;
     public void nextScene()
     {
-        image.enabled = true;
-        text.enabled = false;
+        mainMenu.SetActive(false);
+        nextSceneObject.SetActive(true);
     }
     public void quit()
     {
@@ -18,8 +18,8 @@ public class MainMenuManager : MonoBehaviour
     }
     public void back()
     {
-        image.enabled = false;
-        text.enabled = true;
+        mainMenu.SetActive(true);
+        nextSceneObject.SetActive(false);
     }
     public void next()
     {

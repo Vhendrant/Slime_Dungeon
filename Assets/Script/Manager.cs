@@ -2,18 +2,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Manager : MonoBehaviour
 {
     public TextMeshProUGUI reloadText;
     public Combat combat;
     public Image image;
-    public Image image2;
-    public Image image3;
+    public TextMeshProUGUI fireballCount;
     public Sprite full;
     public Sprite empty;
     public Movement movement;
     public TextMeshProUGUI healthCount;
+    public Slime_Behavior slime_Behavior;
+    public GameObject gameover;
+    public GameObject win;
+    public TextMeshProUGUI score;
+    public float timesurvived = 0;
+    public int count;
+    public TextMeshProUGUI finaltime;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,36 +31,31 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timesurvived += Time.deltaTime;
         reloadText.text = combat.timer.ToString("F1");
-
-        if (combat.attackSlot == 3)
-        {
-            image.sprite= full;
-            image2.sprite = full;
-            image3.sprite = full;
-        }
-        else if (combat.attackSlot == 2)
-        {
-            image.sprite = full;
-            image2.sprite = full;
-            image3.sprite = empty;
-        }
-        else if (combat.attackSlot == 1)
-        {
-            image.sprite = full;
-            image2.sprite = empty;
-            image3.sprite = empty;
-        }
-        else
-        {
-            image.sprite = empty;
-            image2.sprite = empty;
-            image3.sprite = empty;
-        }
-        healthCount.text = movement.health.ToString();
+        fireballCount.text = $"{combat.attackSlot.ToString()} X";
+        healthCount.text = $"{movement.health.ToString()} X";
+        score.text = $"Score : {timesurvived}";
+        isWinning();
     }
     public void mainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
+    public void GameOver()
+    {
+        gameover.SetActive(true);
+        slime_Behavior.isOver = true;
+    }
+    public void isWinning()
+    {
+        if (count == 0)
+        {
+            win.SetActive(true);
+            slime_Behavior.isOver = true;
+            finaltime.text = $"CONGRATULATIONS /n Time : {timesurvived}";
+            
+        }
+    }
+    
 }

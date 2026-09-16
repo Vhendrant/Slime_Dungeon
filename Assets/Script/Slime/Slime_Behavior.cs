@@ -11,18 +11,26 @@ public class Slime_Behavior : MonoBehaviour
     private float timer = 0;
     public Animator animator;
     private bool isMoving;
-    public float spawnTimer = 7.5f;
-    public float Health = 5;
+    public float spawnTimer;
+    public float Health;
     public TextMeshPro text;
+    public bool isOver = false;
+    public GameObject manager;
+    public Manager managerClass;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         movement = player.GetComponent<Movement>();
-        Health = 5;
-        spawnTimer = 7.5f;
+        Health = 7;
+        spawnTimer = 5f;
+        manager = GameObject.FindWithTag("Manager");
+        managerClass = manager.GetComponent<Manager>();
+        managerClass.count += 1;
     }
-
+    private void OnDestroy() {
+        managerClass.count -= 1;
+    }
     void Update()
     {
         float target = 4; 
@@ -42,8 +50,10 @@ public class Slime_Behavior : MonoBehaviour
             isMoving = true;
         }
         animator.SetBool("Moving", isMoving);
-        multiply();
-
+        if (!isOver)
+        {
+            multiply();
+        }
     }
     public void multiply()
     {
@@ -53,7 +63,7 @@ public class Slime_Behavior : MonoBehaviour
         }
         else
         {   
-            spawnTimer = 7.5f;
+            spawnTimer = 5f;
             Instantiate(gameObject, transform.position, transform.rotation);
 
         }

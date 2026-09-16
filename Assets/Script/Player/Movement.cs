@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public Vector2 moveValue;
     public Vector2 aimDirection;
     public int health = 10;
+    public Manager manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class Movement : MonoBehaviour
 
         if (health == 0)
         {
+            manager.GameOver();
             Destroy(gameObject);
         }
     }

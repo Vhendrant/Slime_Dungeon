@@ -272,10 +272,10 @@ TextureImporter:
       name: 1-bit_UI_byBatuhanK_6
       rect:
         serializedVersion: 2
-        x: 249
-        y: 45
-        width: 215
-        height: 107
+        x: 271
+        y: 56
+        width: 174
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,7 +373,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
