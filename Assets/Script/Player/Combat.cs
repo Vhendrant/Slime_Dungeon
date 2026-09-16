@@ -8,7 +8,7 @@ public class Combat : MonoBehaviour
     public GameObject fireball;
     public int attackSlot = 3;
     public float timer = 0;
-    private float targetTimer = 1;
+    private float targetTimer = 0.75f;
     public int maxSlot = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

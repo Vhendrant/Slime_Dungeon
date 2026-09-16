@@ -22,8 +22,8 @@ public class Slime_Behavior : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         movement = player.GetComponent<Movement>();
-        Health = 7;
-        spawnTimer = 5f;
+        Health = 3;
+        spawnTimer = 8f;
         manager = GameObject.FindWithTag("Manager");
         managerClass = manager.GetComponent<Manager>();
         managerClass.count += 1;
@@ -63,7 +63,7 @@ public class Slime_Behavior : MonoBehaviour
         }
         else
         {   
-            spawnTimer = 5f;
+            spawnTimer = 8f;
             Instantiate(gameObject, transform.position, transform.rotation);
 
         }

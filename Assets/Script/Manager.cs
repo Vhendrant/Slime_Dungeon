@@ -35,8 +35,12 @@ public class Manager : MonoBehaviour
         reloadText.text = combat.timer.ToString("F1");
         fireballCount.text = $"{combat.attackSlot.ToString()} X";
         healthCount.text = $"{movement.health.ToString()} X";
-        score.text = $"Score : {timesurvived}";
+        score.text = $"Score : {timesurvived.ToString("F1")}";
         isWinning();
+        if (count == 64)
+        {
+            GameOver();
+        }
     }
     public void mainMenu()
     {
@@ -49,7 +53,7 @@ public class Manager : MonoBehaviour
     }
     public void isWinning()
     {
-        if (count == 0)
+        if (count == 0 && timesurvived>10)
         {
             win.SetActive(true);
             slime_Behavior.isOver = true;

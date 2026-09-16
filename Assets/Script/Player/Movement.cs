@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-    private float moveSpeed = 2;
+    private float moveSpeed = 3.5f;
     private InputAction moveAction;
     public Animator animator;
     public GameObject slime;
@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
         animator.SetFloat("MoveX", aimDirection.x);
         animator.SetFloat("MoveY", aimDirection.y);
 
-        if (health == 0)
+        if (health <= 0)
         {
             manager.GameOver();
             Destroy(gameObject);
