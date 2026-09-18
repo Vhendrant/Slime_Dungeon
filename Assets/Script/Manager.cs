@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
     public float timesurvived = 0;
     public int count;
     public TextMeshProUGUI finaltime;
+    public GameObject slime;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,8 @@ public class Manager : MonoBehaviour
         health.onHealthChanged += OnhealthChanged;
         health.onDeath += GameOver;
         OnhealthChanged(health.currentHealth);
+        Vector3 random = new Vector3(Random.Range(1, 3), Random.Range(1, 3), 0);
+        Instantiate(slime, Vector3.zero + random, transform.rotation);
     }
 
     // Update is called once per frame

@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
     private float moveSpeed = 3.5f;
     private InputAction moveAction;
     public Animator animator;
-    public GameObject slime;
     public Vector2 moveValue;
     public Vector2 aimDirection;
 
@@ -15,10 +14,6 @@ public class Movement : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         moveAction.Enable();
-
-        Vector3 random = new Vector3(Random.Range(1, 3), Random.Range(1, 3), 0);
-
-        Instantiate(slime, transform.position + random, transform.rotation);
     }
 
     // Update is called once per frame

@@ -4382,7 +4382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   rb2d: {fileID: 1918621795}
   animator: {fileID: 1918621791}
-  slime: {fileID: 8430864506705273173, guid: 57b2512eda973444bb91c25ee2fdcd86, type: 3}
   moveValue: {x: 0, y: 0}
   aimDirection: {x: 0, y: 0}
 --- !u!50 &1918621795
@@ -4585,6 +4584,7 @@ MonoBehaviour:
   timesurvived: 0
   count: 0
   finaltime: {fileID: 1219468495}
+  slime: {fileID: 8430864506705273173, guid: 57b2512eda973444bb91c25ee2fdcd86, type: 3}
 --- !u!4 &2051518702
 Transform:
   m_ObjectHideFlags: 0
