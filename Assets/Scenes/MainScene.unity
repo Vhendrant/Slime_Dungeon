@@ -4260,10 +4260,11 @@ GameObject:
   - component: {fileID: 1918621792}
   - component: {fileID: 1918621791}
   - component: {fileID: 1918621795}
+  - component: {fileID: 1918621797}
   - component: {fileID: 1918621794}
   - component: {fileID: 1918621796}
-  - component: {fileID: 1918621797}
   - component: {fileID: 1918621798}
+  - component: {fileID: 1918621799}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -4383,7 +4384,7 @@ MonoBehaviour:
   rb2d: {fileID: 1918621795}
   animator: {fileID: 1918621791}
   moveValue: {x: 0, y: 0}
-  aimDirection: {x: 0, y: 0}
+  aim: {fileID: 1918621799}
 --- !u!50 &1918621795
 Rigidbody2D:
   serializedVersion: 5
@@ -4423,11 +4424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e365b8c17fbc74b5bb27668301c8bcfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Combat
-  movement: {fileID: 1918621794}
   fireball: {fileID: 1195478640932804307, guid: 4f08beb6e906449c9816e766b6c2797a, type: 3}
   attackSlot: 3
   timer: 0
   maxSlot: 3
+  aim: {fileID: 1918621799}
 --- !u!70 &1918621797
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4479,6 +4480,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   MaxHealth: 10
   currentHealth: 0
+--- !u!114 &1918621799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918621790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2545fde485536411d9e06e0d31b36969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimDirection
+  aimDirection: {x: 0, y: 0}
 --- !u!1 &1937444524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,7 +4591,6 @@ MonoBehaviour:
   health: {fileID: 1918621798}
   fireballCount: {fileID: 1655096672}
   healthCount: {fileID: 1429744636}
-  slime_Behavior: {fileID: 1994826448696403083, guid: 57b2512eda973444bb91c25ee2fdcd86, type: 3}
   gameover: {fileID: 693794338}
   win: {fileID: 800364962}
   score: {fileID: 1062037528}

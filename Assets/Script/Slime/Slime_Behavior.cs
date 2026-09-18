@@ -9,32 +9,37 @@ public class Slime_Behavior : MonoBehaviour
     private float moveSpeed = 5;
     private float timer = 0;
     public Animator animator;
-    private bool isMoving;
     public float spawnTimer;
     public TextMeshPro text;
     public bool isOver = false;
     public GameObject manager;
-    public Manager managerClass;
+    public static event System.Action<bool> slimecountchange;
+    private int lastsecond = -1;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         spawnTimer = 8f;
         manager = GameObject.FindWithTag("Manager");
-        managerClass = manager.GetComponent<Manager>();
-        managerClass.count += 1;
+        slimecountchange.Invoke(true);
     }
     private void OnDestroy() {
-        managerClass.count -= 1;
+        slimecountchange.Invoke(false);
     }
     void Update()
     {
+        if (!isOver)
+        {
+            multiply();
+        }
+    }
+    
+    void FixedUpdate()
+    {        
         float target = 4; 
-
         if (timer < target)
         {
             timer += Time.deltaTime;
-            isMoving = false;
         }
         else
         {
@@ -43,12 +48,7 @@ public class Slime_Behavior : MonoBehaviour
             timer = 0;
             animator.SetFloat("MoveX", direction.x);
             animator.SetFloat("MoveY", direction.y);
-            isMoving = true;
-        }
-        animator.SetBool("Moving", isMoving);
-        if (!isOver)
-        {
-            multiply();
+            animator.SetTrigger("Moving");
         }
     }
     public void multiply()
@@ -56,14 +56,20 @@ public class Slime_Behavior : MonoBehaviour
         if (spawnTimer > 0)
         {
             spawnTimer -= Time.deltaTime;
+            int currentSecond = Mathf.CeilToInt(spawnTimer);
+            if (currentSecond != lastsecond)
+            {
+                lastsecond = currentSecond;
+                text.text = lastsecond.ToString();
+            }
         }
         else
         {   
             spawnTimer = 8f;
+            lastsecond = -1;
             Instantiate(gameObject, transform.position, transform.rotation);
 
         }
-        text.text = spawnTimer.ToString("F1");
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
