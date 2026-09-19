@@ -9,7 +9,16 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public Vector2 moveValue;
     public AimDirection aim;
+    public static Transform PlayerTransform;
 
+    void Awake()
+    {
+        PlayerTransform = this.transform;
+    }
+    void ODestroy()
+    {
+        PlayerTransform = null;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

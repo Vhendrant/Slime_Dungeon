@@ -5,26 +5,31 @@ using UnityEngine;
 public class Slime_Behavior : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-    public GameObject player;
     private float moveSpeed = 5;
     private float timer = 0;
     public Animator animator;
     public float spawnTimer;
+    public float initialSpawnTimer = 8f;
     public TextMeshPro text;
     public bool isOver = false;
-    public GameObject manager;
     public static event System.Action<bool> slimecountchange;
     private int lastsecond = -1;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        spawnTimer = 8f;
-        manager = GameObject.FindWithTag("Manager");
-        slimecountchange.Invoke(true);
+        spawnTimer = initialSpawnTimer;
+        if (slimecountchange != null)
+        {
+            slimecountchange.Invoke(true); 
+        }
+
     }
     private void OnDestroy() {
-        slimecountchange.Invoke(false);
+        if (slimecountchange != null)
+        {
+            slimecountchange.Invoke(false);           
+        }
+
     }
     void Update()
     {
@@ -43,7 +48,7 @@ public class Slime_Behavior : MonoBehaviour
         }
         else
         {
-            Vector2 direction = (player.transform.position - transform.position).normalized;
+            Vector2 direction = (Movement.PlayerTransform.position - transform.position).normalized;
             rb2d.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
             timer = 0;
             animator.SetFloat("MoveX", direction.x);
@@ -65,7 +70,7 @@ public class Slime_Behavior : MonoBehaviour
         }
         else
         {   
-            spawnTimer = 8f;
+            spawnTimer = initialSpawnTimer;
             lastsecond = -1;
             Instantiate(gameObject, transform.position, transform.rotation);
 
@@ -76,7 +81,7 @@ public class Slime_Behavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 direction = (player.transform.position - transform.position).normalized;
+            Vector2 direction = (Movement.PlayerTransform.position - transform.position).normalized;
             rb2d.AddForce(-direction * moveSpeed, ForceMode2D.Impulse);
             IDamageable target = collision.gameObject.GetComponent<IDamageable>();
             if (target != null)

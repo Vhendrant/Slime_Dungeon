@@ -44,10 +44,6 @@ public class Manager : MonoBehaviour
         reloadText.text = combat.timer.ToString("F1");
         score.text = $"Score : {timesurvived.ToString("F1")}";
         isWinning();
-        if (count == 64)
-        {
-            GameOver();
-        }
     }
 
     public void onAttackslotchanged(int currentattackslot)
@@ -94,6 +90,10 @@ public class Manager : MonoBehaviour
         if (state == true)
         {
             count += 1;
+            if (count == 64)
+            {
+                GameOver();
+            }
         }
         else if (state == false)
         {
