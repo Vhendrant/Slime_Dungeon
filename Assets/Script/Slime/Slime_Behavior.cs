@@ -15,6 +15,7 @@ public class Slime_Behavior : MonoBehaviour
     public static event System.Action<bool> slimecountchange;
     private int lastsecond = -1;
     public Vector2 direction;
+    public ISlimeState slimeState;
 
     void Start()
     {
