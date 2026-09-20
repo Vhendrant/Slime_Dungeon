@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     {
         PlayerTransform = this.transform;
     }
-    void ODestroy()
+    void OnDestroy()
     {
         PlayerTransform = null;
     }

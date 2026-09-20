@@ -14,6 +14,7 @@ public class Slime_Behavior : MonoBehaviour
     public bool isOver = false;
     public static event System.Action<bool> slimecountchange;
     private int lastsecond = -1;
+    public Vector2 direction;
 
     void Start()
     {
@@ -48,7 +49,14 @@ public class Slime_Behavior : MonoBehaviour
         }
         else
         {
-            Vector2 direction = (Movement.PlayerTransform.position - transform.position).normalized;
+            if (Movement.PlayerTransform != null)
+            {
+                direction = (Movement.PlayerTransform.position - transform.position).normalized;
+            }
+            else 
+            {
+                direction = Vector2.zero;
+            }
             rb2d.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
             timer = 0;
             animator.SetFloat("MoveX", direction.x);
@@ -81,7 +89,14 @@ public class Slime_Behavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 direction = (Movement.PlayerTransform.position - transform.position).normalized;
+            if (Movement.PlayerTransform != null)
+            {
+                direction = (Movement.PlayerTransform.position - transform.position).normalized;
+            }
+            else 
+            {
+                direction = Vector2.zero;
+            }
             rb2d.AddForce(-direction * moveSpeed, ForceMode2D.Impulse);
             IDamageable target = collision.gameObject.GetComponent<IDamageable>();
             if (target != null)
