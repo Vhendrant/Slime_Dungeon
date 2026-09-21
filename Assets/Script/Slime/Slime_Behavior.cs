@@ -15,10 +15,23 @@ public class Slime_Behavior : MonoBehaviour
     public static event System.Action<bool> slimecountchange;
     private int lastsecond = -1;
     public Vector2 direction;
-    public ISlimeState slimeState;
+    public ISlimeState currentSlimeState;
+    private slimeIdleState IdleState;
+    private slimeMoveState MoveState;
+    private slimeMultiplyState multiplyState;
+    private slimeDeadState deadState;
 
+    void Awake()
+    {
+        IdleState = new slimeIdleState(this);
+        MoveState = new slimeMoveState(this);
+        multiplyState = new slimeMultiplyState(this);
+        deadState = new slimeDeadState(this);
+    }
     void Start()
     {
+        ChangeState(IdleState);
+
         spawnTimer = initialSpawnTimer;
         if (slimecountchange != null)
         {
@@ -26,6 +39,20 @@ public class Slime_Behavior : MonoBehaviour
         }
 
     }
+    public void ChangeState(ISlimeState newState)
+    {
+        if (currentSlimeState != null)
+        {
+            currentSlimeState.Exit();
+        }
+        currentSlimeState = newState;
+
+        if (currentSlimeState != null)
+        {
+            currentSlimeState.Enter();
+        }
+    }
+
     private void OnDestroy() {
         if (slimecountchange != null)
         {
@@ -35,6 +62,10 @@ public class Slime_Behavior : MonoBehaviour
     }
     void Update()
     {
+        if (currentSlimeState != null)
+        {
+            currentSlimeState.Update();
+        }
         if (!isOver)
         {
             multiply();
