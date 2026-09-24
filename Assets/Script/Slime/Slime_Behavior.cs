@@ -14,14 +14,12 @@ public class Slime_Behavior : MonoBehaviour
     public slimeIdleState IdleState {get; private set;}
     public slimeMoveState MoveState {get; private set;}
     public slimeMultiplyState multiplyState {get; private set;}
-    public slimeDeadState deadState {get; private set;}
 
     void Awake()
     {
         IdleState = new slimeIdleState(this);
         MoveState = new slimeMoveState(this);
         multiplyState = new slimeMultiplyState(this);
-        deadState = new slimeDeadState(this);
     }
     void Start()
     {
