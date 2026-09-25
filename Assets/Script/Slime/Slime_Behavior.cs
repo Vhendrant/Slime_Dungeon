@@ -7,19 +7,22 @@ public class Slime_Behavior : MonoBehaviour
     public Rigidbody2D rb2d;
     public TextMeshPro text;
     public Animator animator;
-    public float moveSpeed = 5;
+    public float moveSpeed;
     public Vector2 direction;
     public static event System.Action<bool> slimecountchange;
     public ISlimeState currentSlimeState {get; private set;}
     public slimeIdleState IdleState {get; private set;}
     public slimeMoveState MoveState {get; private set;}
     public slimeMultiplyState multiplyState {get; private set;}
+    public SlimeData slimeData;
 
     void Awake()
     {
         IdleState = new slimeIdleState(this);
         MoveState = new slimeMoveState(this);
         multiplyState = new slimeMultiplyState(this);
+        moveSpeed = slimeData.moveSpeed;
+
     }
     void Start()
     {

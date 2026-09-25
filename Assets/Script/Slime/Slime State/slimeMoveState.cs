@@ -17,7 +17,7 @@ public class slimeMoveState : ISlimeState
         {
             slime_Behavior.direction = Vector2.zero;
         }
-        slime_Behavior.rb2d.AddForce(slime_Behavior.direction * slime_Behavior.moveSpeed, ForceMode2D.Impulse);
+        slime_Behavior.rb2d.AddForce(slime_Behavior.direction * slime_Behavior.slimeData.moveSpeed, ForceMode2D.Impulse);
         slime_Behavior.animator.SetFloat("MoveX", slime_Behavior.direction.x);
         slime_Behavior.animator.SetFloat("MoveY", slime_Behavior.direction.y);
         slime_Behavior.animator.SetTrigger("Moving");

@@ -3,13 +3,14 @@ using UnityEngine;
 public class slimeIdleState: ISlimeState
 {
     private Slime_Behavior slime_Behavior;
-    public float spawnTimer = 8f;
-    public float initialSpawnTimer = 8f;
+    public float spawnTimer;
     public int lastsecond = -1;
-    public float timer = Random.Range(0.5f, 4.5f);
+    public float timer;
     public slimeIdleState(Slime_Behavior slime)
     {
         slime_Behavior = slime;
+        spawnTimer = slime_Behavior.slimeData.initialSpawnTimer;
+        timer = Random.Range(slime_Behavior.slimeData.minimumHoptimer, slime_Behavior.slimeData.maximumHoptimer);
     }
     public void Enter()
     {
@@ -29,7 +30,7 @@ public class slimeIdleState: ISlimeState
         }
         else
         {   
-            spawnTimer = initialSpawnTimer;
+            spawnTimer = slime_Behavior.slimeData.initialSpawnTimer;
             lastsecond = -1;
             slime_Behavior.ChangeState(slime_Behavior.multiplyState);
         }
@@ -41,7 +42,7 @@ public class slimeIdleState: ISlimeState
         }
         else
         {
-            timer = Random.Range(3.8f, 4.5f);
+            timer = Random.Range(slime_Behavior.slimeData.minimumHoptimer, slime_Behavior.slimeData.maximumHoptimer);
             slime_Behavior.ChangeState(slime_Behavior.MoveState);
         }
     }

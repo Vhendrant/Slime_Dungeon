@@ -408,3 +408,4 @@ MonoBehaviour:
   animator: {fileID: 5001940232306930207}
   moveSpeed: 5
   direction: {x: 0, y: 0}
+  slimeData: {fileID: 11400000, guid: 4034f645ac55e49b6860e4a8b0356408, type: 2}
