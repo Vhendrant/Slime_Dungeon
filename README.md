@@ -44,3 +44,4 @@ The core loop is simple: **kill them before they divide.**
 ---
 ## Note
 This game is still in the middle of refactoring (after quick prototyping)
+The core game play is done though.
